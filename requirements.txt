@@ -1,0 +1,16 @@
+flask
+flask-cors
+google-generativeai
+pinecone-client
+cohere
+langchain
+langchain-google-genai
+langchain-groq
+PyPDF2
+python-dotenv
+redis
+pydantic
+langchain-community
+rank_bm25
+streamlit
+requests
