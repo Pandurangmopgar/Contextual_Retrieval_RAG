@@ -8,25 +8,25 @@ This project implements a Contextual Retrieval-Augmented Generation (RAG) system
 
 ```
 CONTEXTUAL_RAG_AGENT/
+├── src/
+│   ├── app.py            # Streamlit frontend application
+│   └── main.py           # Flask backend application
 ├── .env                  # Environment variables (not in repo)
-├── app.py                # Streamlit frontend application
 ├── dockerfile            # Docker configuration for backend
-├── main.py               # Flask backend application
 ├── requirements.txt      # Python dependencies
 └── Contextual_RAG.ipynb  # Google Colab notebook with step-by-step implementation
 ```
 
 ## Components
 
-1. **Flask Backend** (`main.py`): Handles document processing, querying, and interfacing with AI services.
-2. **Streamlit Frontend** (`app.py`): Provides a user-friendly interface for interacting with the system.
-3. **Docker**: Containerizes the backend application for easy deployment and scalability.
+1. **Flask Backend** (`src/main.py`): Handles document processing, querying, and interfacing with AI services.
+2. **Streamlit Frontend** (`src/app.py`): Provides a user-friendly interface for interacting with the system.
+3. **Docker**: Optional containerization for the backend application.
 4. **Google Colab Notebook** (`Contextual_RAG.ipynb`): Contains the step-by-step implementation and explanation of the RAG system.
 5. **AI Services**: Utilizes Pinecone, Cohere, Google AI, and Groq for various AI tasks.
 
 ## Prerequisites
 
-- Docker
 - Python 3.11
 - API keys for Pinecone, Cohere, Google AI, and Groq
 - Streamlit
@@ -53,35 +53,44 @@ CONTEXTUAL_RAG_AGENT/
    pip install -r requirements.txt
    ```
 
-4. **Dockerfile**
-   The Dockerfile is set up to create a container for the Flask backend:
-   ```dockerfile
-   FROM python:3.11-slim
-   WORKDIR /app
-   COPY requirements.txt .
-   RUN pip install --no-cache-dir -r requirements.txt
-   COPY main.py .
-   COPY .env .
-   EXPOSE 5000
-   ENV FLASK_APP=main.py
-   ENV FLASK_RUN_HOST=0.0.0.0
-   CMD ["flask", "run", "--host=0.0.0.0"]
-   ```
-
 ## Running the Application
 
-1. **Build and Run the Backend Docker Container**
+### Option 1: Running without Docker
+
+1. **Start the Flask Backend**
    ```
-   docker build -t contextual-rag-backend .
-   docker run -p 5000:5000 contextual-rag-backend
+   cd src
+   python main.py
    ```
+   The backend will start running on `http://localhost:5000`.
 
 2. **Run the Streamlit Frontend**
+   In a new terminal window:
    ```
+   cd src
    streamlit run app.py
    ```
+   The Streamlit frontend will open in your default web browser.
 
-The backend will be accessible at `http://localhost:5000`, and the Streamlit frontend will open in your default web browser.
+### Option 2: Using Docker (Optional)
+
+If you prefer to use Docker, you can create your own Docker image:
+
+1. **Build the Docker Image**
+   ```
+   docker build -t _name_of_your_image .
+   ```
+
+2. **Run the Docker Container**
+   ```
+   docker run -p 5000:5000 _name_of_your_image
+   ```
+
+3. **Run the Streamlit Frontend**
+   ```
+   cd src
+   streamlit run app.py
+   ```
 
 ## Google Colab Notebook
 
@@ -123,10 +132,7 @@ The Contextual RAG system works as follows:
 ## Troubleshooting
 
 - Ensure all API keys are correctly set in the `.env` file.
-- Check Docker logs for backend errors:
-  ```
-  docker logs [container_id]
-  ```
+- For backend issues, check the console output where you started the Flask application.
 - For frontend issues, check the Streamlit console output.
 - Verify that all required packages are installed and listed in `requirements.txt`.
 
