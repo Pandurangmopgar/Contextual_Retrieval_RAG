@@ -14,7 +14,7 @@ CONTEXTUAL_RAG_AGENT/
 ├── .env                  # Environment variables (not in repo)
 ├── dockerfile            # Docker configuration for backend
 ├── requirements.txt      # Python dependencies
-└── Contextual_RAG.ipynb  # Google Colab notebook with step-by-step implementation
+└── CONTEXTUAL_RETRIVAL+RLFH(PPO).ipynb  # Google Colab notebook with step-by-step implementation
 ```
 
 ## Components
@@ -22,7 +22,7 @@ CONTEXTUAL_RAG_AGENT/
 1. **Flask Backend** (`src/main.py`): Handles document processing, querying, and interfacing with AI services.
 2. **Streamlit Frontend** (`src/app.py`): Provides a user-friendly interface for interacting with the system.
 3. **Docker**: Optional containerization for the backend application.
-4. **Google Colab Notebook** (`Contextual_RAG.ipynb`): Contains the step-by-step implementation and explanation of the RAG system.
+4. **Google Colab Notebook** (`CONTEXTUAL_RETRIVAL+RLFH(PPO).ipynb`): Contains the step-by-step implementation and explanation of the RAG system.
 5. **AI Services**: Utilizes Pinecone, Cohere, Google AI, and Groq for various AI tasks.
 
 ## Prerequisites
@@ -94,7 +94,7 @@ If you prefer to use Docker, you can create your own Docker image:
 
 ## Google Colab Notebook
 
-The `Contextual_RAG.ipynb` notebook in the repository provides a detailed, step-by-step implementation of the RAG system. To use it:
+The `CONTEXTUAL_RETRIVAL+RLFH(PPO).ipynb` notebook in the repository provides a detailed, step-by-step implementation of the RAG system. To use it:
 
 1. Open the notebook in Google Colab.
 2. Follow the instructions to set up your environment and API keys.
@@ -135,11 +135,3 @@ The Contextual RAG system works as follows:
 - For backend issues, check the console output where you started the Flask application.
 - For frontend issues, check the Streamlit console output.
 - Verify that all required packages are installed and listed in `requirements.txt`.
-
-## Contributing
-
-[Add your guidelines for contributing to the project]
-
-## License
-
-[Specify the license under which this project is released]
