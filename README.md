@@ -35,7 +35,7 @@ CONTEXTUAL_RAG_AGENT/
 
 1. **Clone the Repository**
    ```
-   git clone [your-repo-url]
+   git clone https://github.com/Pandurangmopgar/Contextual_Retrival.git
    cd CONTEXTUAL_RAG_AGENT
    ```
 
